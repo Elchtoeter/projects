@@ -1,17 +1,22 @@
 import java.awt.*;
+import java.awt.image.BufferStrategy;
 
 public class Game extends Canvas implements Runnable {
 
     public static final int WIDTH = 640, HEIGHT = WIDTH/12*9;
     private Thread thread;
     private boolean running = false;
+    private Handler handler;
 
     public static void main(String[] args) {
         new Game();
     }
 
     public Game(){
-       new Window(WIDTH, HEIGHT, "game 1", this);
+        handler = new Handler();
+        new Window(WIDTH, HEIGHT, "game 1", this);
+
+        handler.addObject(new Player(100, 100, ID.Player));
     }
 
     public void run(){
@@ -43,10 +48,24 @@ public class Game extends Canvas implements Runnable {
     }
 
     private void tick(){
-
+        handler.tick();
     }
 
     private void render(){
+        BufferStrategy bs = this.getBufferStrategy();
+        if (bs == null){
+            this.createBufferStrategy(3);
+            return;
+        }
+        Graphics g = bs.getDrawGraphics();
+
+        g.setColor(Color.black);
+        g.fillRect(0,0,WIDTH,HEIGHT);
+
+        handler.render(g);
+
+        g.dispose();
+        bs.show();
 
     }
 
