@@ -10,6 +10,7 @@ public class KeyInput extends KeyAdapter{
     }
 
     public void keyPressed(KeyEvent e) {
+        super.keyPressed(e);
         int key = e.getKeyCode();
         for (GameObject object : handler.object) {
             if (object.getId() == ID.Player){
@@ -19,10 +20,13 @@ public class KeyInput extends KeyAdapter{
                 if (key == KeyEvent.VK_A){object.setVelX(-5);}
             }
         }
+        if (key == KeyEvent.VK_ESCAPE)
+            System.exit(1);
     }
 
 
     public void keyReleased(KeyEvent e) {
+        super.keyReleased(e);
         int key = e.getKeyCode();
         for (GameObject object : handler.object) {
             if (object.getId() == ID.Player){

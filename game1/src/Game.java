@@ -18,6 +18,8 @@ public class Game extends Canvas implements Runnable {
         new Window(WIDTH, HEIGHT, "game 1", this);
 
         handler.addObject(new Player(100, 100, ID.Player));
+        handler.addObject(new BasicEnemy(25,25, ID.BasicEnemy));
+        handler.addObject(new BasicEnemy( WIDTH - 50, HEIGHT -50 ,ID.BasicEnemy));
     }
 
     public void run(){
@@ -37,13 +39,14 @@ public class Game extends Canvas implements Runnable {
             }
             if(running)
                 render();
-            frames++;
+            /**frames++;
 
             if(System.currentTimeMillis() - timer > 1000){
                 timer += 1000;
                 System.out.println("FPS : "+frames);
                 frames = 0;
             }
+             */
         }
         stop();
     }
@@ -83,5 +86,15 @@ public class Game extends Canvas implements Runnable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static int clamp(int var, int min, int max){
+        if (var>=max) {
+            return max;
+        }
+        if (var<=min){
+            return min;
+        }
+        return var;
     }
 }

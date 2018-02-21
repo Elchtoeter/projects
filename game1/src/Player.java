@@ -11,13 +11,9 @@ public class Player extends GameObject {
     public void tick() {
         x += velX;
         y += velY;
-        if(x > 640 - 32 || x < 0){
-            velX = 0;
-            x = 0;
-        }
-        if(y > (480 - 32) || y < 0){
-            velY = 0;
-        }
+
+        x = Game.clamp(x,0,Game.WIDTH - 42);
+        y = Game.clamp(y,0, Game.HEIGHT - 65);
     }
 
 
