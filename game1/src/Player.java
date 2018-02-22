@@ -2,9 +2,11 @@ import java.awt.*;
 
 public class Player extends GameObject {
 
+    private int health;
+
     public Player(int x, int y, ID id) {
         super(x, y, id);
-
+        health = 100;
     }
 
 

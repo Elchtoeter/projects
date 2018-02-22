@@ -17,7 +17,7 @@ public class Game extends Canvas implements Runnable {
         this.addKeyListener(new KeyInput(handler));
         new Window(WIDTH, HEIGHT, "game 1", this);
 
-        handler.addObject(new Player(100, 100, ID.Player));
+        handler.addObject(new Player((WIDTH/2)-32, (HEIGHT/2)-32, ID.Player));
         handler.addObject(new BasicEnemy(25,25, ID.BasicEnemy));
         handler.addObject(new BasicEnemy( WIDTH - 50, HEIGHT -50 ,ID.BasicEnemy));
     }
@@ -39,14 +39,14 @@ public class Game extends Canvas implements Runnable {
             }
             if(running)
                 render();
-            /**frames++;
+            frames++;
 
             if(System.currentTimeMillis() - timer > 1000){
                 timer += 1000;
                 System.out.println("FPS : "+frames);
                 frames = 0;
             }
-             */
+
         }
         stop();
     }
