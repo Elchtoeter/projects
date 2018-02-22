@@ -14,10 +14,10 @@ public class KeyInput extends KeyAdapter{
         int key = e.getKeyCode();
         for (GameObject object : handler.object) {
             if (object.getId() == ID.Player){
-                if (key == KeyEvent.VK_W){object.setVelY(-5);}
-                if (key == KeyEvent.VK_S){object.setVelY(5);}
-                if (key == KeyEvent.VK_D){object.setVelX(5);}
-                if (key == KeyEvent.VK_A){object.setVelX(-5);}
+                if (key == KeyEvent.VK_W){object.setAccN(true);}
+                if (key == KeyEvent.VK_S){object.setAccS(true);}
+                if (key == KeyEvent.VK_D){object.setAccE(true);}
+                if (key == KeyEvent.VK_A){object.setAccW(true);}
             }
         }
         if (key == KeyEvent.VK_ESCAPE)
@@ -30,10 +30,10 @@ public class KeyInput extends KeyAdapter{
         int key = e.getKeyCode();
         for (GameObject object : handler.object) {
             if (object.getId() == ID.Player){
-                if (key == KeyEvent.VK_W){object.setVelY(0);}
-                if (key == KeyEvent.VK_S){object.setVelY(0);}
-                if (key == KeyEvent.VK_D){object.setVelX(0);}
-                if (key == KeyEvent.VK_A){object.setVelX(0);}
+                if (key == KeyEvent.VK_W){object.setAccN(false);}
+                if (key == KeyEvent.VK_S){object.setAccS(false);}
+                if (key == KeyEvent.VK_D){object.setAccE(false);}
+                if (key == KeyEvent.VK_A){object.setAccW(false);}
             }
         }
     }

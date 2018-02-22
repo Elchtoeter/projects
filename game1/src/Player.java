@@ -9,11 +9,16 @@ public class Player extends GameObject {
 
 
     public void tick() {
+        if (accN){velY+=-5;}
+        if (accS){velY+=5;}
+        if (accW){velX+=-5;}
+        if (accE){velX+=5;}
         x += velX;
         y += velY;
-
         x = Game.clamp(x,0,Game.WIDTH - 42);
         y = Game.clamp(y,0, Game.HEIGHT - 65);
+        velY = 0;
+        velX = 0;
     }
 
 

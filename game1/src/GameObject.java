@@ -5,6 +5,7 @@ public abstract class GameObject {
     protected int x, y;
     protected ID id;
     protected int velX, velY;
+    protected boolean accN, accE, accS, accW;
 
     public GameObject(int x, int y, ID id) {
         this.x = x;
@@ -55,4 +56,21 @@ public abstract class GameObject {
     public void setVelY(int velY) {
         this.velY = velY;
     }
+
+    public void setAccN(boolean accN) {
+        this.accN = accN;
+    }
+
+    public void setAccE(boolean accE) {
+        this.accE = accE;
+    }
+
+    public void setAccS(boolean accS) {
+        this.accS = accS;
+    }
+
+    public void setAccW(boolean accW) {
+        this.accW = accW;
+    }
 }
+
