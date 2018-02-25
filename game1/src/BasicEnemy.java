@@ -7,6 +7,7 @@ public class BasicEnemy extends GameObject {
         super(x, y, id);
         velX = 5;
         velY = 5;
+        //hit = false;
     }
 
     public void tick() {
